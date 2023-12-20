@@ -1,0 +1,17 @@
+service:
+  name: hello-world-api
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  app:
+    handler: app.handler
+    events:
+      - http:
+          path: /
+          method: ANY
+      - http:
+          path: /{proxy+}
+          method: ANY
